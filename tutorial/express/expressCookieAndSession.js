@@ -6,7 +6,7 @@ const hostname = "127.0.0.1";
 const port = 3030;
 
 const express = require('express');
-// const ejs = require('ejs');
+const ejs = require('ejs');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const app = express();

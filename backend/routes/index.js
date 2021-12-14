@@ -5,31 +5,31 @@ const router = express.Router();
 
 router.get('/', function(req, res, next) {
   repository.find().then(result => {
-    responseExecute(res,result);
+    responseExecute(res, result);
   });
 });
 
 router.get('/:id', function(req, res, next) {
   repository.get(req.params.id).then(result => {
-    responseExecute(res,result);
+    responseExecute(res, result);
   });  
 });
 
 router.post('/', function(req, res, next) {
   repository.add(req.body).then(result => {
-    responseExecute(res,result);
+    responseExecute(res, result);
   });
 });
 
 router.patch('/:id', function(req, res, next) {
   repository.update(req.params.id, req.query).then(result => {
-    responseExecute(res,result);
+    responseExecute(res, result);
   });
 });
 
 router.delete('/:id', function(req, res, next) {
   repository.remove(req.params.id).then(result => {
-    responseExecute(res,result);
+    responseExecute(res, result);
   });
 });
 

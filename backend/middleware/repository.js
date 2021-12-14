@@ -1,15 +1,15 @@
 const mysql = require('mysql');
+const logger = require('../middleware/logger').console;
 const util = require('util');
-const commonVariables = require('./commonVariables');
-
+const connectionConfig = require('../config/connectionConfig');
 
 async function settings() {
     const pool = mysql.createPool({
-        connectionLimit: commonVariables.connectionLimit,
-        host: commonVariables.dbHost,
-        user: commonVariables.dbUser,
-        password: commonVariables.dbPassword,
-        database: commonVariables.databaseName    
+        connectionLimit: connectionConfig.connectionLimit,
+        host: connectionConfig.dbHost,
+        user: connectionConfig.dbUser,
+        password: connectionConfig.dbPassword,
+        database: connectionConfig.databaseName    
     })
 
     // Mysqlはasync-awaitをちゃんとサポートできていないが
@@ -20,6 +20,7 @@ async function settings() {
 
 
 exports.find = async function find() {
+    logger.info("find-method");
     const pool = await settings();
     const result = await pool.query(
         'SELECT * FROM members'
@@ -29,6 +30,7 @@ exports.find = async function find() {
 }
 
 exports.get = async function get(id) {
+    logger.info("get-method");
     const pool = await settings();
     const result = await pool.query(
         'SELECT * FROM members where id = ?', [id]
@@ -38,6 +40,8 @@ exports.get = async function get(id) {
 }
 
 exports.add = async function add(memberObject) {
+    logger.info("add-method");
+
     if (memberObject == null || memberObject.name == null) {
         return null;
     }
@@ -51,6 +55,8 @@ exports.add = async function add(memberObject) {
 }
 
 exports.update = async function update(id, params) {
+    logger.info("update-method");
+
     if (id == null || params.name == null) {
         return null;
     }
@@ -73,6 +79,8 @@ exports.update = async function update(id, params) {
 }
 
 exports.remove = async function remove(id) {
+    logger.info("remove-method");
+
     if (id == null) {
         return null;
     }
@@ -83,7 +91,6 @@ exports.remove = async function remove(id) {
     );
     
     let result;
-    console.log(getResult);
     if (getResult == null) {
         result = null;
     } else {

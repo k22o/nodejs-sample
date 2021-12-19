@@ -10,6 +10,7 @@
 - middleware: ミドルウェア
     - logger: logger
     - repository: DBにアクセスする
+- views: ビュー
 - routes: パスの振り分け。所謂、controller
 - config: configuration
     - connectionConfig: DBの接続情報

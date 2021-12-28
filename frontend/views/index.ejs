@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html" charaset="utf-8" http-equiv="Content-Type">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title> node sample UI index</title>
+</head>
+<body>
+  <div id="container" class="py-2">
+    <div class="bg-dark text-white">
+      <h1>node sample UI</h1>
+    </div>
+    <div id="contents" class="py-2">
+      <div id="button-area">
+        <a class="btn btn-primary" href="/add">追加</a>
+      </div>  
+      <div>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let x of list) { %>
+            <tr>
+              <td><%= x.id %></td>
+              <td><%= x.name %></td>
+              <td>
+                <a class="btn btn-secondary" href="/edit/<%= x.id %>">修正</a>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>  
+  </div>
+</body>
+</html>

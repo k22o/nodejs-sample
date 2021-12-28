@@ -5,6 +5,14 @@
 - https://gulpjs.com/docs/en/getting-started/quick-start
 
 
+# 実行
+以下、実行例
+```
+$ gulp <task> <othertask>
+$ gulp # default
+$ gulp jsProcess
+```
+
 # install
 次は必須。globalにインストールする。
 ```

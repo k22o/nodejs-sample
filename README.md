@@ -1,3 +1,7 @@
+生のexpressを使って自前でサーバを組む時代は終焉を迎えつつあるので、public archiveします。
+Next.jsとかNest.jsとかNuxt.jsをつかってくれ。
+
+
 # CONTENTS
 node.js + expressの基本的な枠組み
 - tutorial: 入門編
